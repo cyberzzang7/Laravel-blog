@@ -1,27 +1,77 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue"
+import VueRouter from "vue-router"
+import store from "../store/index"
 
 Vue.use(VueRouter)
 
+const rejectAuthUser = (to, from, next) => {
+  if(store.state.isLogin === true) {
+    // 이미 로그인 된 유저니까 막아야함.
+    alert("이미 로그인 하였습니다.")
+    // 홈으로 리다이렉션
+    next('/')
+  } else {
+    next()
+  }
+}
+
+const onlyAuthUser = (to, from, next) => {
+  if(store.state.isLogin === false) {
+    // 아직 로그인 안 된 유저니까 막아야함.
+    alert("로그인이 필요한 기능입니다.")
+    // 홈으로 리다이렉션
+    next('/')
+  } else {
+    next()
+  }
+}
+
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: "/login",
+    name: "Login",
+    // 라우터에 들어오기 전에 먼저 실행 시켜 본다. next 하고 패스가 지정되어 있으면 리다이렉션 시키는 방식
+    beforeEnter: rejectAuthUser,
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/Login.vue")
+  },
+  {
+    path: "/mypage",
+    name: "Mypage",
+    beforeEnter: onlyAuthUser,
+    component: () =>
+      import(/* webpackChunkName: "mypage" */ "../views/Mypage.vue")
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    beforeEnter: onlyAuthUser,
+    component: () =>
+      import(/* webpackChunkName: "profile" */ "../views/Profile.vue")
+  },
+  {
+    path: "/service",
+    name: "Service",
+    beforeEnter: onlyAuthUser,
+    component: () =>
+      import(/* webpackChunkName: "service" */ "../views/Service.vue")
+  },
+  {
+    path: "/board",
+    name: "Board",
+    beforeEnter: onlyAuthUser,
+    component: () =>
+      import(/* webpackChunkName: "board" */ "../views/Board.vue")
   }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes
 })
