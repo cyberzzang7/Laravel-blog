@@ -5,12 +5,33 @@
         <div class="carousel-cell">
           <img
             :src="require(`@/assets/1.png`)"
-            style="width: 500px; height: auto"
+            style="width: 100%; height: 100%"
           />
         </div>
-        <div class="carousel-cell"></div>
-        <div class="carousel-cell"></div>
-        <div class="carousel-cell"></div>
+        <div class="carousel-cell">
+          <img
+            class="img-fluid"
+            src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
+            style="width: 100%; height: 100%"
+            alt="Sample image"
+          />
+        </div>
+        <div class="carousel-cell">
+          <img
+            class="img-fluid"
+            src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg"
+            style="width: 100%; height: 100%"
+            alt="Sample image"
+          />
+        </div>
+        <div class="carousel-cell">
+          <img
+            class="img-fluid"
+            src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg"
+            alt="Sample image"
+            style="width: 100%; height: 100%"
+          />
+        </div>
         <div class="carousel-cell"></div>
       </flickity>
     </div>

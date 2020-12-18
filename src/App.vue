@@ -53,10 +53,10 @@
 
       <v-main>
         <v-tabs background-color="basil" color="red" fixed-tabs>
-          <v-tab flat router :to="{ name: 'Mypage' }">Mypage</v-tab>
+          <v-tab flat router :to="{ name: 'Mypage' }">Mainpage</v-tab>
           <v-tab router :to="{ name: 'Profile' }">Profile</v-tab>
-          <v-tab router :to="{ name: 'Service' }">Service</v-tab>
           <v-tab router :to="{ name: 'Board' }">Board</v-tab>
+          <v-tab router :to="{ name: 'Contact' }"> Contact</v-tab>
         </v-tabs>
         <router-view style="background: #fffbe6" />
       </v-main>
@@ -87,7 +87,7 @@
                 <v-icon>mdi-mail</v-icon>
               </v-list-item-icon>
 
-              <v-list-item-title>마이페이지</v-list-item-title>
+              <v-list-item-title>메인페이지</v-list-item-title>
             </v-list-item>
 
             <v-list-item
@@ -118,7 +118,7 @@ export default {
     drawer: false,
     group: null,
     tab: null,
-    items: ["MyPage", "Profile", "Service", "Board"],
+    items: ["MyPage", "Profile", "Board", "Contact"],
     text:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   }),

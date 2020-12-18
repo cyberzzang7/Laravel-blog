@@ -55,11 +55,11 @@ const routes = [
       import(/* webpackChunkName: "profile" */ "../views/Profile.vue")
   },
   {
-    path: "/service",
-    name: "Service",
+    path: "/contact",
+    name: "Contact",
     beforeEnter: onlyAuthUser,
     component: () =>
-      import(/* webpackChunkName: "service" */ "../views/Service.vue")
+      import(/* webpackChunkName: "contact" */ "../views/Contact.vue")
   },
   {
     path: "/board",
@@ -67,7 +67,33 @@ const routes = [
     beforeEnter: onlyAuthUser,
     component: () =>
       import(/* webpackChunkName: "board" */ "../views/Board.vue")
-  }
+  },
+  {
+    path: '/read',
+    name: 'Read',
+    component: ()=>
+      import("../components/Read.vue")
+  },
+
+  {
+    path: '/detail/:contentId',
+    name: 'Detail',
+    component: ()=>
+      import("../components/Detail.vue")
+  }, 
+  {
+    path: '/contentDetail/:contentId',
+    name: 'ContentDetail',
+    component: ()=>
+      import("../components/ContentDetail.vue")
+  }, 
+    {
+    path: '/boardCreate/:contentId?',
+    name: 'BoardCreate',
+    component: ()=>
+      import("../components/BoardCreate.vue")
+  }, 
+
 ]
 
 const router = new VueRouter({

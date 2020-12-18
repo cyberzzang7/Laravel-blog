@@ -78,7 +78,7 @@ export default new Vuex.Store({
           }
       
           commit("loginSuccess",userInfo)
-          router.push({name : "Home"})
+          router.push({name : "Mypage"})
         })
         .catch(()=>{
           alert("이메일과 비밀번호를 확인하세요.")
@@ -86,7 +86,7 @@ export default new Vuex.Store({
     },
     logout({commit}) {
       commit('logout')
-      router.push({ name : "Home"})
+      router.push({ name : "Login"})
     }
   }
 })

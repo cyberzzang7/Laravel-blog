@@ -1,7 +1,7 @@
 <template>
   <v-container style="max-width: 450px; height: 900px">
     <v-layout class="login" row wrap>
-      <v-flex xs12>
+      <v-flex  xs12>
         <v-alert class="mb-3" :value="isLoginError" type="error">
           아이디와 비밀번호를 확인해주세요.
         </v-alert>
@@ -9,9 +9,9 @@
           로그인이 완료되었습니다.
         </v-alert>
 
-        <v-card>
-          <v-toolbar flat>
-            <v-toolbar-title>로그인</v-toolbar-title>
+        <v-card color="basil" >
+          <v-toolbar flat color="basil">
+            <v-toolbar-title >로그인</v-toolbar-title>
           </v-toolbar>
           <div class="pa-3">
             <v-text-field v-model="email" label="이메일을 입력하세요">
@@ -87,5 +87,12 @@ export default {
   transform: translate(-50%, -50%);
   width: 450px;
   height: 200px;
+}
+
+.basil {
+  background-color: #fffbe6 !important;
+}
+.basil--text {
+  color: #356859 !important;
 }
 </style>
